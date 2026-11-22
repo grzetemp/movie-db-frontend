@@ -4,35 +4,30 @@
     <h1 id="page-title">Explore movies.</h1>
   </section>
 
-  <app-movie-filters (filtersChange)="setFilters($event)" />
+  <app-movie-filters />
 
-  @if (viewState$ | async; as state) {
-    <section class="results" aria-labelledby="results-title" aria-live="polite">
-      <div class="results-heading">
-        <div>
-          <p class="results-kicker">PICKED FOR THE CURIOUS</p>
-          <h2 id="results-title">Movies to remember</h2>
-        </div>
-        @if (state.status === 'success') {
-          <span class="result-count">
-            {{ state.movies.length }} {{ state.movies.length === 1 ? 'film' : 'films' }}
-          </span>
-        }
+  <section class="results" aria-labelledby="results-title" aria-live="polite">
+    <div class="results-heading">
+      <div>
+        <p class="results-kicker">PICKED FOR THE CURIOUS</p>
+        <h2 id="results-title">Movies to remember</h2>
       </div>
+      <span class="result-count">0</span>
+    </div>
 
-      @if (state.status === 'loading') {
-        <app-movies-loading />
-      } @else if (state.status === 'error') {
-        <app-movies-error (retry)="retry()" />
-      } @else if (state.movies.length === 0) {
-        <app-movies-empty />
-      } @else {
-        <div class="movie-grid">
-          @for (movie of state.movies; track movie.id; let i = $index) {
-            <app-movie-card [movie]="movie" [index]="i" />
-          }
-        </div>
+    <!-- TODO: Show the loading panel while a request is in progress.
+    <app-movies-loading />
+    -->
+    <!-- TODO: Show the error panel and connect its retry action when a request fails.
+    <app-movies-error />
+    -->
+    <!-- TODO: Show the empty panel when a completed request has no results.
+    <app-movies-empty />
+    -->
+    <div class="movie-grid">
+      @for (movie of movies(); track movie.id; let i = $index) {
+        <app-movie-card [movie]="movie" [index]="i" />
       }
-    </section>
-  }
+    </div>
+  </section>
 </main>

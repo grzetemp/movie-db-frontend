@@ -1,36 +1,19 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { MovieFilters } from './movie.model';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MovieCardComponent } from './movie-card/movie-card';
 import { MovieFiltersComponent } from './movie-filters/movie-filters';
-import { MoviesEmptyComponent } from './movie-status/movies-empty';
-import { MoviesErrorComponent } from './movie-status/movies-error';
-import { MoviesLoadingComponent } from './movie-status/movies-loading';
-import { MoviesStateService } from './movies-state.service';
+import { MoviesApiService } from './movies-api.service';
 
 @Component({
-  imports: [
-    AsyncPipe,
-    MovieCardComponent,
-    MovieFiltersComponent,
-    MoviesEmptyComponent,
-    MoviesErrorComponent,
-    MoviesLoadingComponent,
-  ],
+  imports: [MovieCardComponent, MovieFiltersComponent],
   selector: 'app-movies',
   styleUrl: './movies.scss',
   templateUrl: './movies.html',
 })
 export class Movies {
-  private readonly moviesState = inject(MoviesStateService);
+  private readonly moviesApi = inject(MoviesApiService);
 
-  readonly viewState$ = this.moviesState.viewState$;
-
-  setFilters(filters: MovieFilters): void {
-    this.moviesState.setFilters(filters);
-  }
-
-  retry(): void {
-    this.moviesState.retry();
-  }
+  readonly movies = toSignal(this.moviesApi.getMovies({ title: '', releaseDate: '', genre: '' }), {
+    initialValue: [],
+  });
 }

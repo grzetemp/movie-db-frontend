@@ -1,24 +1,23 @@
 # Reel Atlas
 
-A mobile-first movie library built with Angular and Angular Material. Browse the
-collection at `/movies` (also the default route), or filter by title, exact
-release date, and genre.
+A mobile-first movie library built with Angular and Angular Material. The
+collection is available at `/movies`, which is also the default route.
 
-Movie records live in `public/movies.json`. `MoviesApiService` reads this local
-catalog and simulates backend latency; `MoviesStateService` debounces filter
-changes, cancels stale searches, and exposes loading, result, and error states
-with RxJS. The genre filter uses a fixed list in `movie.model.ts`; movie data is
-expected to use only those genres.
+Movie records live in `public/movies.json`. `MoviesApiService` reads the local
+catalog and simulates a two-second backend delay. The genre filter uses the
+fixed list in `movie.model.ts`; movie data is expected to use only those genres.
 
 ## Development
 
 ```bash
+npm install
 npm start
 ```
 
-## Build and tests
+Open `http://localhost:4200/` in your browser.
+
+## Build
 
 ```bash
 npm run build
-npm test
 ```
