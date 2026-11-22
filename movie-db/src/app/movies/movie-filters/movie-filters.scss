@@ -1,0 +1,67 @@
+.filter-panel {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #e8e4de;
+  border-radius: 1.15rem;
+  background: #fff;
+  box-shadow: 0 12px 35px rgb(34 38 41 / 4%);
+}
+
+.filter-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-heading h2 {
+  margin: 0.35rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.filter-kicker {
+  margin: 0;
+  color: #7a6850;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.clear-button {
+  color: #7a6850;
+  font-size: 0.8rem;
+}
+
+.clear-button mat-icon {
+  margin-right: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.filter-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem 1rem;
+}
+
+.filter-field {
+  width: 100%;
+}
+
+.filter-field mat-icon[matPrefix] {
+  margin-right: 0.55rem;
+  color: #8b8d8d;
+}
+
+@media (min-width: 600px) {
+  .filter-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .filter-fields {
+    grid-template-columns: 1.25fr 0.9fr 0.85fr;
+  }
+}
