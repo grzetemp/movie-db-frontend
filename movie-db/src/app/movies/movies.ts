@@ -1,21 +1,21 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MovieFilters } from './movie.model';
 import { MovieCardComponent } from './movie-card/movie-card';
 import { MovieFiltersComponent } from './movie-filters/movie-filters';
+import { MoviesEmptyComponent } from './movie-status/movies-empty';
+import { MoviesErrorComponent } from './movie-status/movies-error';
+import { MoviesLoadingComponent } from './movie-status/movies-loading';
 import { MoviesStateService } from './movies-state.service';
 
 @Component({
   imports: [
     AsyncPipe,
-    MatButtonModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
     MovieCardComponent,
     MovieFiltersComponent,
+    MoviesEmptyComponent,
+    MoviesErrorComponent,
+    MoviesLoadingComponent,
   ],
   selector: 'app-movies',
   styleUrl: './movies.scss',

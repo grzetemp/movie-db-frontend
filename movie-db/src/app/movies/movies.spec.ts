@@ -110,3 +110,39 @@ describe('Movies list', () => {
     expect(reordered[1].querySelector('.movie-art.tone-2')).not.toBeNull();
   });
 });
+
+describe('Movies status panels', () => {
+  it('renders each state and forwards retry to the state service', async () => {
+    const viewState$ = new Subject<MoviesViewState>();
+    const state = { viewState$, setFilters: vi.fn(), retry: vi.fn() };
+    await TestBed.configureTestingModule({
+      imports: [Movies],
+      providers: [{ provide: MoviesStateService, useValue: state }],
+    }).compileComponents();
+
+    const fixture = TestBed.createComponent(Movies);
+    fixture.detectChanges();
+    const element = fixture.nativeElement as HTMLElement;
+
+    viewState$.next({ status: 'loading' });
+    fixture.detectChanges();
+    expect(element.querySelector('[role="status"] mat-spinner')).not.toBeNull();
+    expect(element.querySelector('[role="status"]')?.textContent).toContain(
+      'Finding your next great watch',
+    );
+
+    viewState$.next({ status: 'error' });
+    fixture.detectChanges();
+    const errorPanel = element.querySelector('[role="alert"]');
+    expect(errorPanel?.textContent).toContain('We couldn’t load the collection');
+    (errorPanel?.querySelector('button') as HTMLButtonElement).click();
+    expect(state.retry).toHaveBeenCalledOnce();
+    expect(element.querySelector('[role="status"]')).toBeNull();
+
+    viewState$.next({ status: 'success', movies: [] });
+    fixture.detectChanges();
+    expect(element.querySelector('app-movies-empty')?.textContent).toContain('No films found');
+    expect(element.querySelector('app-movies-empty button')).toBeNull();
+    expect(element.querySelector('[role="alert"]')).toBeNull();
+  });
+});

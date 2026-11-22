@@ -21,26 +21,11 @@
       </div>
 
       @if (state.status === 'loading') {
-        <div class="status-panel" role="status">
-          <mat-spinner diameter="38" aria-label="Loading movies"></mat-spinner>
-          <p>Finding your next great watch…</p>
-        </div>
+        <app-movies-loading />
       } @else if (state.status === 'error') {
-        <div class="status-panel error-panel" role="alert">
-          <span class="status-icon"><mat-icon aria-hidden="true">cloud_off</mat-icon></span>
-          <h3>We couldn’t load the collection</h3>
-          <p>Check your connection and give it another try.</p>
-          <button mat-flat-button color="primary" type="button" (click)="retry()">
-            <mat-icon aria-hidden="true">refresh</mat-icon>
-            Try again
-          </button>
-        </div>
+        <app-movies-error (retry)="retry()" />
       } @else if (state.movies.length === 0) {
-        <div class="status-panel empty-panel">
-          <span class="status-icon"><mat-icon aria-hidden="true">search_off</mat-icon></span>
-          <h3>No films found</h3>
-          <p>Try another title, date, or genre to explore the collection.</p>
-        </div>
+        <app-movies-empty />
       } @else {
         <div class="movie-grid">
           @for (movie of state.movies; track movie.id; let i = $index) {

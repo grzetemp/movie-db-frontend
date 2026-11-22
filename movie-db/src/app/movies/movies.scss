@@ -81,56 +81,6 @@ h1 {
   gap: 1.15rem;
 }
 
-.status-panel {
-  display: flex;
-  min-height: 240px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  padding: 2rem 1rem;
-  border: 1px dashed #ded9d1;
-  border-radius: 1rem;
-  background: rgb(255 255 255 / 55%);
-  text-align: center;
-}
-
-.status-panel p,
-.status-panel h3 {
-  margin: 0;
-}
-
-.status-panel p {
-  color: #747a7c;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.status-panel h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.status-icon {
-  display: grid;
-  width: 3rem;
-  height: 3rem;
-  place-items: center;
-  border-radius: 50%;
-  color: #8f6c37;
-  background: #f4eddf;
-}
-
-.status-icon mat-icon {
-  width: 1.4rem;
-  height: 1.4rem;
-  font-size: 1.4rem;
-}
-
-.error-panel button mat-icon {
-  margin-right: 0.3rem;
-}
-
 @media (min-width: 600px) {
   .page-shell {
     width: min(100% - 3rem, 1200px);
