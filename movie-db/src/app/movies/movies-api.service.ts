@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { delay, map, Observable, shareReplay } from 'rxjs';
 import { Movie, MovieFilters } from './movie.model';
 
-const MOCK_API_DELAY_MS = 1000;
+const MOCK_API_DELAY_MS = 2000;
 
 @Injectable({ providedIn: 'root' })
 export class MoviesApiService {
