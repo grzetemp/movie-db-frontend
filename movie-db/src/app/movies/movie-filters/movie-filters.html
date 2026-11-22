@@ -1,0 +1,44 @@
+<section class="filter-panel" aria-label="Filter movies">
+  <div class="filter-heading">
+    <div>
+      <p class="filter-kicker">THE COLLECTION</p>
+      <h2>Find a film</h2>
+    </div>
+    @if (hasActiveFilters) {
+      <button mat-button class="clear-button" type="button" (click)="clearFilters()">
+        <mat-icon aria-hidden="true">close</mat-icon>
+        Clear filters
+      </button>
+    }
+  </div>
+
+  <div class="filter-fields">
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Movie title</mat-label>
+      <mat-icon matPrefix aria-hidden="true">search</mat-icon>
+      <input
+        matInput
+        [formControl]="titleControl"
+        placeholder="Try “Inception”"
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Release date</mat-label>
+      <mat-icon matPrefix aria-hidden="true">calendar_month</mat-icon>
+      <input matInput type="date" [formControl]="releaseDateControl" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Genre</mat-label>
+      <mat-icon matPrefix aria-hidden="true">theaters</mat-icon>
+      <mat-select [formControl]="genreControl">
+        <mat-option value="">All genres</mat-option>
+        @for (genre of genres; track genre) {
+          <mat-option [value]="genre">{{ genre }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+</section>

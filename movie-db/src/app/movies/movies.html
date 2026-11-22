@@ -1,0 +1,53 @@
+<main class="page-shell">
+  <section class="intro" aria-labelledby="page-title">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> THE MOVIE COLLECTION</p>
+    <h1 id="page-title">Explore movies.</h1>
+  </section>
+
+  <app-movie-filters (filtersChange)="setFilters($event)" />
+
+  @if (viewState$ | async; as state) {
+    <section class="results" aria-labelledby="results-title" aria-live="polite">
+      <div class="results-heading">
+        <div>
+          <p class="results-kicker">PICKED FOR THE CURIOUS</p>
+          <h2 id="results-title">Movies to remember</h2>
+        </div>
+        @if (state.status === 'success') {
+          <span class="result-count">
+            {{ state.movies.length }} {{ state.movies.length === 1 ? 'film' : 'films' }}
+          </span>
+        }
+      </div>
+
+      @if (state.status === 'loading') {
+        <div class="status-panel" role="status">
+          <mat-spinner diameter="38" aria-label="Loading movies"></mat-spinner>
+          <p>Finding your next great watch…</p>
+        </div>
+      } @else if (state.status === 'error') {
+        <div class="status-panel error-panel" role="alert">
+          <span class="status-icon"><mat-icon aria-hidden="true">cloud_off</mat-icon></span>
+          <h3>We couldn’t load the collection</h3>
+          <p>Check your connection and give it another try.</p>
+          <button mat-flat-button color="primary" type="button" (click)="retry()">
+            <mat-icon aria-hidden="true">refresh</mat-icon>
+            Try again
+          </button>
+        </div>
+      } @else if (state.movies.length === 0) {
+        <div class="status-panel empty-panel">
+          <span class="status-icon"><mat-icon aria-hidden="true">search_off</mat-icon></span>
+          <h3>No films found</h3>
+          <p>Try another title, date, or genre to explore the collection.</p>
+        </div>
+      } @else {
+        <div class="movie-grid">
+          @for (movie of state.movies; track movie.id; let i = $index) {
+            <app-movie-card [movie]="movie" [index]="i" />
+          }
+        </div>
+      }
+    </section>
+  }
+</main>

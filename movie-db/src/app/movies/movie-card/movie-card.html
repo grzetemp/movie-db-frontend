@@ -1,0 +1,36 @@
+@let film = movie();
+<mat-card class="movie-card">
+  <div
+    class="movie-art"
+    [class.tone-1]="index() % 5 === 0"
+    [class.tone-2]="index() % 5 === 1"
+    [class.tone-3]="index() % 5 === 2"
+    [class.tone-4]="index() % 5 === 3"
+    aria-hidden="true"
+  >
+    <span class="art-label">REEL ATLAS <span>·</span> FILM NO. {{ index() + 1 }}</span>
+    <mat-icon class="art-icon">movie</mat-icon>
+    <span class="art-title">{{ film.title }}</span>
+    <span class="art-year">{{ film.releaseDate.slice(0, 4) }}</span>
+  </div>
+
+  <mat-card-content>
+    <div class="movie-title-row">
+      <h3>{{ film.title }}</h3>
+      <span class="movie-year">{{ film.releaseDate.slice(0, 4) }}</span>
+    </div>
+    <p class="director">
+      <mat-icon aria-hidden="true">person_outline</mat-icon>
+      {{ film.director }}
+    </p>
+    <p class="release-date">
+      <mat-icon aria-hidden="true">calendar_today</mat-icon>
+      {{ film.releaseDate + 'T00:00:00Z' | date: 'MMM d, y' : 'UTC' }}
+    </p>
+    <mat-chip-set aria-label="Movie genres">
+      @for (genre of film.genres; track genre) {
+        <mat-chip>{{ genre }}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-card-content>
+</mat-card>

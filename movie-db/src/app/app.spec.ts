@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-    })
-      .compileComponents();
+      providers: [provideRouter([])],
+    }).compileComponents();
   });
 
   it('should create the app', () => {
@@ -15,11 +16,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the work in progress placeholder with a spinner', async () => {
+  it('should render the app header and route outlet', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('main p')?.textContent).toContain('Work in progress ...');
-    expect(compiled.querySelector('main mat-spinner[role="progressbar"]')).not.toBeNull();
+    expect(compiled.querySelector('.brand')?.textContent).toContain('reelatlas');
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });

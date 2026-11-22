@@ -1,0 +1,114 @@
+[
+  {
+    "id": "shawshank-redemption",
+    "title": "The Shawshank Redemption",
+    "releaseDate": "1994-09-23",
+    "director": "Frank Darabont",
+    "genres": ["Drama", "Crime"]
+  },
+  {
+    "id": "godfather",
+    "title": "The Godfather",
+    "releaseDate": "1972-03-24",
+    "director": "Francis Ford Coppola",
+    "genres": ["Crime", "Drama"]
+  },
+  {
+    "id": "dark-knight",
+    "title": "The Dark Knight",
+    "releaseDate": "2008-07-18",
+    "director": "Christopher Nolan",
+    "genres": ["Action", "Crime", "Drama"]
+  },
+  {
+    "id": "pulp-fiction",
+    "title": "Pulp Fiction",
+    "releaseDate": "1994-10-14",
+    "director": "Quentin Tarantino",
+    "genres": ["Crime", "Drama"]
+  },
+  {
+    "id": "spirited-away",
+    "title": "Spirited Away",
+    "releaseDate": "2001-07-20",
+    "director": "Hayao Miyazaki",
+    "genres": ["Animation", "Family", "Fantasy"]
+  },
+  {
+    "id": "inception",
+    "title": "Inception",
+    "releaseDate": "2010-07-16",
+    "director": "Christopher Nolan",
+    "genres": ["Action", "Adventure", "Sci-Fi"]
+  },
+  {
+    "id": "parasite",
+    "title": "Parasite",
+    "releaseDate": "2019-05-30",
+    "director": "Bong Joon Ho",
+    "genres": ["Drama", "Thriller"]
+  },
+  {
+    "id": "interstellar",
+    "title": "Interstellar",
+    "releaseDate": "2014-11-07",
+    "director": "Christopher Nolan",
+    "genres": ["Adventure", "Drama", "Sci-Fi"]
+  },
+  {
+    "id": "grand-budapest-hotel",
+    "title": "The Grand Budapest Hotel",
+    "releaseDate": "2014-03-28",
+    "director": "Wes Anderson",
+    "genres": ["Adventure", "Comedy", "Crime"]
+  },
+  {
+    "id": "la-la-land",
+    "title": "La La Land",
+    "releaseDate": "2016-12-09",
+    "director": "Damien Chazelle",
+    "genres": ["Comedy", "Drama", "Romance"]
+  },
+  {
+    "id": "whiplash",
+    "title": "Whiplash",
+    "releaseDate": "2014-10-10",
+    "director": "Damien Chazelle",
+    "genres": ["Drama", "Music"]
+  },
+  {
+    "id": "get-out",
+    "title": "Get Out",
+    "releaseDate": "2017-02-24",
+    "director": "Jordan Peele",
+    "genres": ["Horror", "Mystery", "Thriller"]
+  },
+  {
+    "id": "mad-max-fury-road",
+    "title": "Mad Max: Fury Road",
+    "releaseDate": "2015-05-15",
+    "director": "George Miller",
+    "genres": ["Action", "Adventure", "Sci-Fi"]
+  },
+  {
+    "id": "everything-everywhere-all-at-once",
+    "title": "Everything Everywhere All at Once",
+    "releaseDate": "2022-03-25",
+    "director": "Daniel Kwan & Daniel Scheinert",
+    "genres": ["Action", "Adventure", "Comedy"]
+  },
+  {
+    "id": "arrival",
+    "title": "Arrival",
+    "releaseDate": "2016-11-11",
+    "director": "Denis Villeneuve",
+    "genres": ["Drama", "Mystery", "Sci-Fi"]
+  },
+  {
+    "id": "truman-show",
+    "title": "The Truman Show",
+    "releaseDate": "1998-06-05",
+    "director": "Peter Weir",
+    "genres": ["Comedy", "Drama", "Sci-Fi"]
+  }
+]
